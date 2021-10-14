@@ -7,10 +7,12 @@ It contains a range of utility software to test connections in container environ
 like kubernetes and a corresponding set of useful commands.
 
 
-Deploy on Kubernetes:
-kubectl deploy --namespace <namespace> apoptose/NetworkTools
+## Deploy on Kubernetes:
+    ```bash
+    kubectl deploy --namespace <namespace> apoptose/NetworkTools
+    ```
 
-Tunnel a network connection through kubernetes to local:
+## Tunnel a network connection through kubernetes to local:
 - inside the running container on kubernetes
     ```bash
     screen -d -m socat tcp-listen:3300,reuseaddr,fork tcp:example.com:3300
