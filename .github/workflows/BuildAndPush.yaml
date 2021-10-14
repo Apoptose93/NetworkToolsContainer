@@ -24,7 +24,7 @@ jobs:
       with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          logout: true# optional, default is true
+          logout: true 
 
 
     - name: Build and push Docker images
