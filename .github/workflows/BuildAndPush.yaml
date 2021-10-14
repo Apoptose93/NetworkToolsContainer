@@ -29,4 +29,6 @@ jobs:
 
     - name: Build and push Docker images
       uses: docker/build-push-action@v2.7.0
-
+      with:
+        push: true
+        tags: apoptose/NetworkTools:Latest
