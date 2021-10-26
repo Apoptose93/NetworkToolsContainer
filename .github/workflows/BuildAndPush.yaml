@@ -33,7 +33,7 @@ jobs:
         # The paths to be used to calculate changes (comma-separated)
         #log-paths: # optional, default is ./
     - run: |
-        echo ${{ steps.GitVersion.outputs.VERSION }}
+        echo ${{ steps.GitVersion.outputs.version }}
 
 
     - name: Docker Login
