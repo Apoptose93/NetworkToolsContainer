@@ -1,0 +1,43 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}   # checkout the correct branch name
+        fetch-depth: 0                # fetch the whole repo history
+    - name: GitVersion
+      id: gitversion
+      # You may pin to the exact commit or the version.
+      # uses: codacy/git-version@fa06788276d7492a2af01662649696d249ecf4cb
+      uses: codacy/git-version@2.4.0
+      with:
+        # The name of the release branch
+        release-branch: main # default is master
+        # The name of the dev branch
+        dev-branch: dev # default is dev
+
+    - name: Docker Login
+      # You may pin to the exact commit or the version.
+      # uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+      uses: docker/login-action@v1.10.0
+      with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          logout: true 
+
+    - name: Build Docker images
+      uses: docker/build-push-action@v2.7.0
+      with:
+        push: true
+        tags: apoptose/networktools:${{ steps.gitversion.outputs.version }}
