@@ -5,10 +5,7 @@ name: CI
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
-  workflow_dispatch:
 
 jobs:
   build:
@@ -16,6 +13,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}   # checkout the correct branch name
+        fetch-depth: 0                # fetch the whole repo history
+    - name: GitVersion
+      id: gitversion
+      # You may pin to the exact commit or the version.
+      # uses: codacy/git-version@fa06788276d7492a2af01662649696d249ecf4cb
+      uses: codacy/git-version@2.4.0
+      with:
+        # The name of the release branch
+        release-branch: main # default is master
+        # The name of the dev branch
+        dev-branch: dev # default is dev
 
     - name: Docker Login
       # You may pin to the exact commit or the version.
@@ -26,9 +36,8 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           logout: true 
 
-
-    - name: Build and push Docker images
+    - name: Build Docker images
       uses: docker/build-push-action@v2.7.0
       with:
         push: true
-        tags: apoptose/NetworkTools:Latest
+        tags: apoptose/networktools:${{ steps.gitversion.outputs.version }}
