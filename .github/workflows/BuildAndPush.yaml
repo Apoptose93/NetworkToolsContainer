@@ -20,6 +20,7 @@ jobs:
         ref: ${{ github.head_ref }}   # checkout the correct branch name
         fetch-depth: 0                # fetch the whole repo history
     - name: GitVersion
+      id: gitversion
       # You may pin to the exact commit or the version.
       # uses: codacy/git-version@fa06788276d7492a2af01662649696d249ecf4cb
       uses: codacy/git-version@2.4.0
@@ -33,7 +34,9 @@ jobs:
         # The paths to be used to calculate changes (comma-separated)
         #log-paths: # optional, default is ./
     - run: |
-        echo ${{ steps.GitVersion.outputs.version }}
+        pwd
+        ls ..
+        echo ${{ steps.gitversion.outputs.version }}
 
 
     - name: Docker Login
