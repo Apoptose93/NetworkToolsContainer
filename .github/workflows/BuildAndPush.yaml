@@ -41,3 +41,14 @@ jobs:
       with:
         push: true
         tags: apoptose/networktools:${{ steps.gitversion.outputs.version }}
+    - name: Dockerhub Readme
+  # You may pin to the exact commit or the version.
+  # uses: ms-jpq/sync-dockerhub-readme@e2991ea1ba48832e73555cdbd5b82f5a2e91ee9b
+      uses: ms-jpq/sync-dockerhub-readme@v1
+      with:
+        # Dockerhub username
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        # Dockerhub password
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        # path to readme markdown
+        readme: ./README.md
