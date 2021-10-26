@@ -8,7 +8,7 @@ like kubernetes and a corresponding set of useful commands.
 
 
 ## Deploy on Kubernetes:
-
+- on your local machine
     ```bash
     kubectl deploy --namespace <namespace> apoptose/NetworkTools
     ```
@@ -23,5 +23,26 @@ like kubernetes and a corresponding set of useful commands.
     kubectl port-forward --namespace=<namespace> <NetworkTools-pod> 3300:3300
     ```
 
+## Test service connection on port:
+- with netcat
+    ```bash
+    nc -vz example.com 3300
+    ```
+- with telnet
+    ```bash
+    telnet example.com 3300
+    ```
+
+## Containing Software:
+- Nmap
+https://nmap.org/
+- Netcat
+https://wiki.ubuntuusers.de/netcat/
+- Socat
+https://www.redhat.com/sysadmin/getting-started-socat
+- NetTools
+https://packages.ubuntu.com/bionic/net-tools
+- Screen
+https://wiki.ubuntuusers.de/Screen/
 
 ## This repository is open for contribution.
