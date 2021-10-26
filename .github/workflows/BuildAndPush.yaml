@@ -33,7 +33,7 @@ jobs:
         # The paths to be used to calculate changes (comma-separated)
         #log-paths: # optional, default is ./
     - run: |
-        echo $VERSION
+        echo \"New Version: $VERSION\"
 
 
     - name: Docker Login
