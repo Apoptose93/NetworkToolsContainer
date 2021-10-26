@@ -53,6 +53,10 @@ like kubernetes and a corresponding set of useful commands.
     ```bash
     traceroute example.com
     ```
+- with traceroute using ICMP
+    ```bash
+    traceroute -I example.com
+    ```
 ## Containing Software:
 - Nmap
 https://nmap.org/
