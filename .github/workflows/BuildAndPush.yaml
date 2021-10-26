@@ -32,7 +32,10 @@ jobs:
         #prefix: # optional
         # The paths to be used to calculate changes (comma-separated)
         #log-paths: # optional, default is ./
-    - run: ./git-version
+    - run: |
+        ls
+        ls ./NetworkToolsContainer
+        ./git-version
 
 
     - name: Docker Login
