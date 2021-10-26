@@ -23,7 +23,14 @@ like kubernetes and a corresponding set of useful commands.
     kubectl port-forward --namespace=<namespace> <NetworkTools-pod> 3300:3300
     ```
 
-## Test service connection on port:
+## Test internet connectability (ICMP)
+### Can be blocked by firewall, while TCP requests still work fine
+- with ping
+    ```bash
+    ping example.com
+    ```
+## Test service connection (TCP) on port:
+### Useful for testing SMTP and HTTP web ports
 - with netcat
     ```bash
     nc -vz example.com 3300
@@ -32,7 +39,20 @@ like kubernetes and a corresponding set of useful commands.
     ```bash
     telnet example.com 3300
     ```
+- with nmap
+    ```bash
+    nmap -p 3300 example.com
+    ```
+- with nmap range of ports
+    ```bash
+    nmap -p 3300-3400 example.com
+    ```
 
+## See tracing/hops
+- with traceroute
+    ```bash
+    traceroute example.com
+    ```
 ## Containing Software:
 - Nmap
 https://nmap.org/
