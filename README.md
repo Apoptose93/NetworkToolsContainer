@@ -1,5 +1,7 @@
 # Docker Network Tools
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/649c2ed0448546efb6a9f6f9c471ac26)](https://app.codacy.com/gh/Apoptose93/NetworkToolsContainer?utm_source=github.com&utm_medium=referral&utm_content=Apoptose93/NetworkToolsContainer&utm_campaign=Badge_Grade_Settings)
+
 This Repository contains the Docker build for the apoptose/NetworkTools
 container image.
 
