@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-RUN apt-get -y update \
+RUN apt-get -y update --no-install-recommends \
 && apt-get -y install nmap=7.80+dfsg1-2build1 \
 netcat=1.206-1ubuntu1 \
 socat=1.7.3.3-2 \
