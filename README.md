@@ -1,3 +1,6 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c811f6b557ee4e44ad373084015ba0b3)](https://www.codacy.com/gh/codacy/git-version?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=codacy/git-version&amp;utm_campaign=Badge_Grade)
+![example workflow](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
+
 # Docker Network Tools
 
 This Repository contains the Docker build for the apoptose/NetworkTools
@@ -56,6 +59,12 @@ like kubernetes and a corresponding set of useful commands.
 - with traceroute using ICMP
     ```bash
     traceroute -I example.com
+    ```
+
+## send a simple GET request
+- with curl
+    ```bash
+    curl https://example.com:3300
     ```
 ## Containing Software:
 - Nmap

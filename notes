@@ -1,0 +1,11 @@
+
+PING/ICMP echo-requests can be ignored at firewall and/or kernel level, and the fact that an host does not answer to pings does not prevent it from answering other services.
+
+Likewise being able to telnet a port, does not implies PING will have to answer.
+
+
+
+'TELNET is a troubleshooting tool, you can telnet any TCP port to see if it is responding, which is especially useful when checking SMTP and HTTP web ports'.
+
+
+traceroute google.com
